@@ -1,5 +1,7 @@
-{% extends 'base.html'%}
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/css.css' %}">
-<h1>Olá</h1>
-<img src="{% static '/img/wp4468273-desktop-aesthetic-wallpapers.jpg' %}">
+{% extends 'base.html' %}
+
+{% block title %}Título da Página{% endblock %}
+
+{% block content %}
+    <h1>Olá</h1>
+{% endblock %}
