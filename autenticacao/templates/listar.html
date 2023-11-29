@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for i in pessoas%}
+
+<h4>Nome: {{i.nome}}</h4>
+<h4>Email: {{i.email}}</h4>
+<h4>Senha: {{i.senha}}</h4>
+<hr>
+
+{% endfor %}
+
+{% endblock %}
