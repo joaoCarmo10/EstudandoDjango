@@ -1,7 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 import json
-from .models import Pessoa
+
+from django.http import HttpResponse
+from django.shortcuts import render
+
+from .models import Cargos, Pessoa
+
 
 def cadastro(request):
     if request.method == 'GET':
@@ -18,9 +21,32 @@ def cadastro(request):
         pessoa.save()
         return HttpResponse('Você foi cadastrado!')
 
+
 def listar(request):
-    pessoas = Pessoa.objects.all()
-    return render(request, 'listar.html', {'pessoas':pessoas})
+    cargo = Cargos.objects.get.filter(id=1)
+    pessoas = Pessoa.objects.filter(cargo=cargo)
+    return render (request, 'listar/listar.html', {'pessoas':pessoas})
+
+
+
+#Inserir com GET
+# def listar(request):
+#     if len(request.GET) != 0:
+#         nome = request.GET.get('nome')
+#         email = request.GET.get('email')
+#         senha = request.GET.get('senha')
+        
+#         cargo=Cargos.objects.filter(id=1)
+        
+#         pessoa = Pessoa(
+#             nome=nome,
+#             email=email,
+#             senha=senha,
+#             cargo=cargo
+#         )
+        
+#     pessoas = Pessoa.objects.all()
+#     return render(request, 'listar/listar.html', {'pessoas':pessoas})
 
 # Buscando todos os dados
 # def listar(request):
