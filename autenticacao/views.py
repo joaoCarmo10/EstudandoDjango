@@ -23,10 +23,13 @@ def cadastro(request):
 
 
 def listar(request):
-    cargo = Cargos.objects.get.filter(id=1)
-    pessoas = Pessoa.objects.filter(cargo=cargo)
+    pessoas = Pessoa.objects.all()
     return render (request, 'listar/listar.html', {'pessoas':pessoas})
 
+#parametro da url dinamica
+def listar_unico(request):
+    pessoa = Pessoa.objects.all()
+    return render (request, 'listar/listar.html')
 
 
 #Inserir com GET
@@ -43,8 +46,7 @@ def listar(request):
 #             email=email,
 #             senha=senha,
 #             cargo=cargo
-#         )
-        
+#         )       
 #     pessoas = Pessoa.objects.all()
 #     return render(request, 'listar/listar.html', {'pessoas':pessoas})
 
