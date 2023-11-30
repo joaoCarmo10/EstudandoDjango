@@ -18,3 +18,12 @@ class Pessoa(models.Model):
 
 class Data(models.Model):
     data = models.DateTimeField()
+
+class Pedido(models.Model):
+    nome = models.CharField(max_length=100)
+    quantidade = models.IntegerField()
+    descricao = models.TextField()
+    pessoa = models.ForeignKey(Pessoa, on_delete=models.DO_NOTHING)
+
+    def __str__(self) -> str:
+        return self.nome
